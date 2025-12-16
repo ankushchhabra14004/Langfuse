@@ -13,7 +13,7 @@ langfuse = Langfuse(
 # Gemini 2.0 Flash LLM call
 def gemini_llm_call(prompt):
     genai.configure(api_key="AIzaSyBRT5hfxrH02dgQiUPshBoCV8xdEuHKYvw")
-    model = genai.GenerativeModel("gemini-2.5-flash")
+    model = genai.GenerativeModel("gemini-1.5-flash")
     response = model.generate_content(prompt)
     return response.text
 
