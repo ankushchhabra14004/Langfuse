@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Join LiveKit Room</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .field {
+            margin: 20px 0;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background: #0066cc;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0052a3;
+        }
+        .info {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Join LiveKit Voice Agent Room</h1>
+    
+    <div class="info">
+        <p><strong>Pre-filled credentials for test-room-langfuse</strong></p>
+        <p>Make sure your agent is running in the terminal!</p>
+    </div>
+    
+    <div class="field">
+        <label>LiveKit URL:</label>
+        <input type="text" id="url" value="wss://capstone-gk1fgf3g.livekit.cloud" readonly>
+    </div>
+    
+    <div class="field">
+        <label>Access Token:</label>
+        <input type="text" id="token" value="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiV2ViIFVzZXIiLCJ2aWRlbyI6eyJyb29tSm9pbiI6dHJ1ZSwicm9vbSI6InRlc3Qtcm9vbS1sYW5nZnVzZSIsImNhblB1Ymxpc2giOnRydWUsImNhblN1YnNjcmliZSI6dHJ1ZSwiY2FuUHVibGlzaERhdGEiOnRydWV9LCJzdWIiOiJ3ZWItdXNlciIsImlzcyI6IkFQSVRoeFRwUGZRRGtHTCIsIm5iZiI6MTc2NTk1Njg2MiwiZXhwIjoxNzY1OTc4NDYyfQ.8kiygQ7PBb7hb-LshtvJnOX_Cr43OzhfZq0Imunp0hg" readonly>
+    </div>
+    
+    <button onclick="joinRoom()">Connect to Room</button>
+    
+    <script>
+        function joinRoom() {
+            const url = document.getElementById('url').value;
+            const token = document.getElementById('token').value;
+            
+            // Use the hash-based URL format for meet.livekit.io
+            const meetUrl = `https://meet.livekit.io/#/?liveKitUrl=${encodeURIComponent(url)}&token=${encodeURIComponent(token)}`;
+            window.open(meetUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
